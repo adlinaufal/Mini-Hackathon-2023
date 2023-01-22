@@ -1,0 +1,256 @@
+#include "mbed.h"
+DigitalOut LED[] = {(PC_0),(PC_1),(PC_2),(PC_3),(PC_4),(PC_5),(PC_6)}; //External LEDS for Dice 1 at PC_0 to PC6
+DigitalOut LEDS[] = {(PC_7),(PC_8),(PC_9),(PC_10),(PC_11),(PC_12),(PA_0)}; //External LEDS for Dice 2 at PC_7 to PC-12 and PA_0
+
+InterruptIn button(PA_2);
+int main()
+{
+    int Dice1, Dice2;
+    const int sides = 6;
+
+    if(button==1)
+    { // When the button is pressed, the LED Dices will diaplay 1 to 6
+        LED[0] = 1; // Dice 1 and Dice 2 display 1
+        LEDS[0]= 1;
+        LED[1] = 0;
+        LEDS[1]= 0;
+        LED[2] = 0;
+        LEDS[2]= 0;
+        LED[3] = 0;
+        LEDS[3]= 0;
+        LED[4] = 0;
+        LEDS[4]= 0;
+        LED[5] = 0;
+        LEDS[5]= 0;
+        LED[6] = 0;
+        LEDS[6]= 0;
+        wait(0.5); //wait 0.5 seconds
+
+        LED[0] = 0;//Dice 1 and Dice 2 display 2
+        LEDS[0]= 0;
+        LED[1] = 0;
+        LEDS[1]= 0;
+        LED[2] = 0;
+        LEDS[2]= 0;
+        LED[3] = 1;
+        LEDS[3]= 0;
+        LED[4] = 1;
+        LEDS[4]= 0;
+        LED[5] = 0;
+        LEDS[5]= 1;
+        LED[6] = 0;
+        LEDS[6]= 1;
+        wait(0.5);
+
+        LED[0] = 1;//Dice 1 and Dice 2 display 3
+        LEDS[0]= 1;
+        LED[1] = 1;
+        LEDS[1]= 1;
+        LED[2] = 1;
+        LEDS[2]= 1;
+        LED[3] = 0;
+        LEDS[3]= 0;
+        LED[4] = 0;
+        LEDS[4]= 0;
+        LED[5] = 0;
+        LEDS[5]= 0;
+        LED[6] = 0;
+        LEDS[6]= 0;
+        wait(0.5);
+
+        LED[0] = 0;//Dice 1 and Dice 2 display 4
+        LEDS[0]= 0;
+        LED[1] = 0;
+        LEDS[1]= 0;
+        LED[2] = 0;
+        LEDS[2]= 0;
+        LED[3] = 1;
+        LEDS[3]= 1;
+        LED[4] = 1;
+        LEDS[4]= 1;
+        LED[5] = 1;
+        LEDS[5]= 1;
+        LED[6] = 1;
+        LEDS[6]= 1;
+        wait(0.5);
+
+        LED[0] = 1;//Dice 1 and Dice 2 display 5
+        LEDS[0]= 1;
+        LED[1] = 0;
+        LEDS[1]= 0;
+        LED[2] = 0;
+        LEDS[2]= 0;
+        LED[3] = 1;
+        LEDS[3]= 1;
+        LED[4] = 1;
+        LEDS[4]= 1;
+        LED[5] = 1;
+        LEDS[5]= 1;
+        LED[6] = 1;
+        LEDS[6]= 1;
+        wait(0.5);
+
+        LED[0] = 0;//Dice 1 and Dice 2 display 6
+        LEDS[0]= 0;
+        LED[1] = 1;
+        LEDS[1]= 1;
+        LED[2] = 1;
+        LEDS[2]= 1;
+        LED[3] = 1;
+        LEDS[3]= 1;
+        LED[4] = 1;
+        LEDS[4]= 1;
+        LED[5] = 1;
+        LEDS[5]= 1;
+        LED[6] = 1;
+        LEDS[6]= 1;
+        wait(0.5);
+
+        srand (time(0));
+        Dice1 = rand() % sides + 1;
+        Dice2 = rand() % sides + 1;
+    }
+
+    //When Dice1 is 1, only 1 LED is display
+    if(Dice1 == 1)
+    {
+        LED[0] = 1;
+        LED[1] = 0;
+        LED[2] = 0;
+        LED[3] = 0;
+        LED[4] = 0;
+        LED[5] = 0;
+        LED[6] = 0;
+    }
+
+    //When Dice1 is 2, 2 LEDs is display
+    if(Dice1 == 2)
+    {
+        LED[0] = 0;
+        LED[1] = 1;
+        LED[2] = 1;
+        LED[3] = 0;
+        LED[4] = 0;
+        LED[5] = 0;
+        LED[6] = 0;
+    }
+
+    //When Dice1 is 3, 3 LEDs is display
+    if(Dice1 == 3)
+    {
+        LED[0] = 1;
+        LED[1] = 1;
+        LED[2] = 1;
+        LED[3] = 0;
+        LED[4] = 0;
+        LED[5] = 0;
+        LED[6] = 0;
+    }
+
+    //When Dice1 is 3, 3 LEDs is display
+    if(Dice1 == 4)
+    {
+        LED[0] = 0;
+        LED[1] = 0;
+        LED[2] = 0;
+        LED[3] = 1;
+        LED[4] = 1;
+        LED[5] = 1;
+        LED[6] = 1;
+    }
+
+    //When Dice1 is 4, 4 LEDs is display
+    if(Dice1 == 5)
+    {
+        LED[0] = 1;
+        LED[1] = 0;
+        LED[2] = 0;
+        LED[3] = 1;
+        LED[4] = 1;
+        LED[5] = 1;
+        LED[6] = 1;
+    }
+
+    //When Dice1 is 6, 6 LEDs is display
+    if(Dice1 == 6)
+    {
+        LED[0] = 0;
+        LED[1] = 1;
+        LED[2] = 1;
+        LED[3] = 1;
+        LED[4] = 1;
+        LED[5] = 1;
+        LED[6] = 1;
+    }
+    /*Dice2*/
+    //When Dice2 is 1, only 1 LED is display
+    if(Dice2 == 1)
+    {
+        LEDS[0] = 0;
+        LEDS[1] = 0;
+        LEDS[2] = 0;
+        LEDS[3] = 0;
+        LEDS[4] = 0;
+        LEDS[5] = 0;
+        LEDS[6] = 1;
+    }
+
+    //When Dice2 is 2, 2 LEDs is display
+    if(Dice2 == 2)
+    {
+        LEDS[0] = 0;
+        LEDS[1] = 1;
+        LEDS[2] = 1;
+        LEDS[3] = 0;
+        LEDS[4] = 0;
+        LEDS[5] = 0;
+        LEDS[6] = 0;
+    }
+
+    //When Dice2 is 3, 3 LEDs is display
+    if(Dice2 == 3)
+    {
+        LEDS[0] = 1;
+        LEDS[1] = 1;
+        LEDS[2] = 1;
+        LEDS[3] = 0;
+        LEDS[4] = 0;
+        LEDS[5] = 0;
+        LEDS[6] = 0;
+    }
+
+    //When Dice2 is 4, 4 LEDs is display
+    if(Dice2 == 4)
+    {
+        LEDS[0] = 0;
+        LEDS[1] = 0;
+        LEDS[2] = 0;
+        LEDS[3] = 1;
+        LEDS[4] = 1;
+        LEDS[5] = 1;
+        LEDS[6] = 1;
+    }
+
+    //When Dice2 is 5, 5 LEDs is display
+    if(Dice2 == 5)
+    {
+        LEDS[0] = 1;
+        LEDS[1] = 0;
+        LEDS[2] = 0;
+        LEDS[3] = 1;
+        LEDS[4] = 1;
+        LEDS[5] = 1;
+        LEDS[6] = 1;
+    }
+    //When Dice2 is 6, 6 LEDs is display
+    if(Dice2 == 6)
+    {
+        LEDS[0] = 0;
+        LEDS[1] = 1;
+        LEDS[2] = 1;
+        LEDS[3] = 1;
+        LEDS[4] = 1;
+        LEDS[5] = 1;
+        LEDS[6] = 1;
+    }
+}
